@@ -1,0 +1,10 @@
+.quantity__control {
+  .quantity__field {
+    padding-left: 21px;
+    background: #fff;
+
+    &:read-only {
+      background: #fff;
+    }
+  }
+}

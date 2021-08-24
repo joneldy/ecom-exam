@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { IProduct } from '../types';
 import './styles.scss';
 
@@ -24,9 +25,9 @@ const ListItem = ({
           <h5 className="card-title">{title}</h5>
           <h6>price: ${price}</h6>
           <h6 className="category">category: {category}</h6>
-          <a href="/" className="btn btn-primary">
+          <Link to={`/products/${id}`} className="btn btn-small btn-primary">
             View Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>

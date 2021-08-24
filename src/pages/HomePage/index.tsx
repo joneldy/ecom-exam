@@ -1,7 +1,7 @@
 import React from 'react';
-import HomeContainer from '../../containers/HomeContainer';
+import HomePageContainer from '../../containers/HomePageContainer';
 import './styles.scss';
 
-const HomePage = () => <HomeContainer />;
+const HomePage = () => <HomePageContainer />;
 
 export default HomePage;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { IProduct } from '../types';
 import './styles.scss';
 import { limitCharacters } from '../../../utils';
@@ -21,9 +22,10 @@ const CardItem = ({ id, title, price, category, image }: CardItemProps) => (
         <h6 className="categories">
           categories: <span>{category}</span>
         </h6>
-        <a href="/" className="btn btn-primary">
+
+        <Link to={`/products/${id}`} className="btn btn-small btn-primary">
           View Details
-        </a>
+        </Link>
       </div>
     </div>
   </div>

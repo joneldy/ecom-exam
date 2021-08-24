@@ -24,7 +24,7 @@ const HomeContainer = () => {
   const productsError = useSelector(getProductsError);
   // filters
   const [searchStr, setSearchStr] = useState('');
-  const [sortBy, setSortBy] = useState('');
+  const [sortBy, setSortBy] = useState('name');
   const [sortDirection, setSortDirection] = useState('');
   const [category, setCategory] = useState<string | null>('');
   // pagination
@@ -75,7 +75,7 @@ const HomeContainer = () => {
   const filterProductName = (products: IProduct[]) => {
     return products.filter((item) => {
       const title = item.title.toLowerCase();
-      return title.indexOf(searchStr) != -1;
+      return title.indexOf(searchStr) !== -1;
     });
   };
 
@@ -83,7 +83,7 @@ const HomeContainer = () => {
     let _products = [...products];
 
     if (_sortBy === 'name') {
-      _products = products.sort(function (a, b) {
+      const sortByName = (a, b) => {
         if (a.title < b.title) {
           return -1;
         }
@@ -91,14 +91,16 @@ const HomeContainer = () => {
           return 1;
         }
         return 0;
-      });
+      };
+      _products = products.sort(sortByName);
     } else if (_sortBy === 'price') {
-      _products = products.sort(function (a, b) {
+      const sorPrice = (a, b) => {
         return +a.price - +b.price;
-      });
+      };
+      _products = products.sort(sorPrice);
     }
 
-    return sortDirection === 'desc' ? products.reverse() : products;
+    return sortDirection === 'desc' ? _products.reverse() : _products;
   };
 
   const filterResults = (products: IProduct[]) => {
@@ -111,7 +113,6 @@ const HomeContainer = () => {
     let results = products;
 
     if (category) {
-      debugger;
       results = filterByCategories(results);
     }
 
@@ -138,7 +139,7 @@ const HomeContainer = () => {
   const onPageChange = ({ selected }: { selected: number }) => {
     setPage(Number(selected));
   };
-  console.log();
+
   return (
     <FilterContext.Provider value={FilterProps}>
       <div className="home">
