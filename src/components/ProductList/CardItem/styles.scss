@@ -1,0 +1,31 @@
+.card__item {
+  width: 17rem;
+  .card-title {
+    font-size: 16px;
+  }
+  .product__image {
+    width: 200px;
+    margin: 0 auto;
+  }
+  .price {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    span {
+      font-weight: bold;
+    }
+  }
+  .categories {
+    font-size: 15px;
+    margin-bottom: 20px;
+    span {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  }
+
+  @media (max-width: 576px) {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}

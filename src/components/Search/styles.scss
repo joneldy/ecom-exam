@@ -1,0 +1,8 @@
+.search__container {
+  display: flex;
+  align-items: center;
+
+  &__input {
+    min-width: 500px;
+  }
+}
